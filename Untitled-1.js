@@ -449,7 +449,7 @@ function change_colormode() {
     }
 }
 
-setInterval(change_colormode, 15000);
+const colorInterval = setInterval(change_colormode, 15000);
 
 function side() {
     speed_x_00 = null;
@@ -486,6 +486,16 @@ window.addEventListener('keyup', (event) => {
     switch (event.key) {
         case ' ':
             shapes_temp_change = true;
+            break
+    }
+    console.log(event.key)
+})
+
+window.addEventListener('keyup', (event) => {
+    switch (event.key) {
+        case 'm':
+            change_colormode();
+            clearInterval(colorInterval);
             break
     }
     console.log(event.key)
